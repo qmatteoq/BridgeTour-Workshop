@@ -1,11 +1,11 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Windows.Data.Xml.Dom;
+using Windows.Security.Credentials;
 using Windows.UI.Notifications;
 
 namespace DesktopBridge.FlightTracker
@@ -27,7 +27,7 @@ namespace DesktopBridge.FlightTracker
             operationStatusLabel.Text = "The flight has been saved";
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private async void Form1_Load(object sender, EventArgs e)
         {
             _regKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\DesktopBridgeWorkshop\Demo", true);
             if (_regKey == null)
@@ -44,6 +44,20 @@ namespace DesktopBridge.FlightTracker
             if (bridgeHelpers.IsRunningAsUwp())
             {
                 updateStripMenuItem.Visible = false;
+                var keyCredentialAvailable = await KeyCredentialManager.IsSupportedAsync();
+                if (keyCredentialAvailable)
+                {
+                    var keyCreationResult = await KeyCredentialManager.RequestCreateAsync("FlightTracker", KeyCredentialCreationOption.ReplaceExisting);
+                    if (keyCreationResult.Status == KeyCredentialStatus.Success)
+                    {
+                        MessageBox.Show("Authentication succesfull. You can use the app!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Authentication failed. The app will be closed");
+                        Application.Exit();
+                    }
+                }
             }
         }
 
