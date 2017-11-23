@@ -36,7 +36,7 @@
   <PropertyGroup>
     <ProjectGuid>e4dbc9ec-da63-42e4-b032-84cdfd5d0134</ProjectGuid>
     <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.14393.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
     <PackageCertificateKeyFile>DesktopBridge.FlightTracker.Package_TemporaryKey.pfx</PackageCertificateKeyFile>
     <EntryPointProjectUniqueName>..\DesktopBridge.FlightTracker\DesktopBridge.FlightTracker.csproj</EntryPointProjectUniqueName>
@@ -92,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DesktopBridge.FlightTracker\DesktopBridge.FlightTracker.csproj" />
+    <ProjectReference Include="..\ShareUX\ShareUX.csproj" />
   </ItemGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
 </Project>

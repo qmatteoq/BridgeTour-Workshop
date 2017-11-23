@@ -46,14 +46,16 @@
             this.aboutFlightTrackerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.operationStatusLabel = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.headerImage = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.headerImage)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(53, 42);
+            this.label1.Location = new System.Drawing.Point(55, 34);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(205, 37);
@@ -62,7 +64,7 @@
             // 
             // codeTextbox
             // 
-            this.codeTextbox.Location = new System.Drawing.Point(59, 107);
+            this.codeTextbox.Location = new System.Drawing.Point(62, 200);
             this.codeTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.codeTextbox.Name = "codeTextbox";
             this.codeTextbox.Size = new System.Drawing.Size(197, 20);
@@ -71,7 +73,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(57, 93);
+            this.label2.Location = new System.Drawing.Point(60, 186);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 13);
@@ -80,7 +82,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(100, 272);
+            this.saveButton.Location = new System.Drawing.Point(103, 365);
             this.saveButton.Margin = new System.Windows.Forms.Padding(2);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(50, 23);
@@ -91,7 +93,7 @@
             // 
             // exportButton
             // 
-            this.exportButton.Location = new System.Drawing.Point(174, 272);
+            this.exportButton.Location = new System.Drawing.Point(177, 365);
             this.exportButton.Margin = new System.Windows.Forms.Padding(2);
             this.exportButton.Name = "exportButton";
             this.exportButton.Size = new System.Drawing.Size(50, 23);
@@ -103,7 +105,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(57, 133);
+            this.label3.Location = new System.Drawing.Point(60, 226);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
@@ -112,7 +114,7 @@
             // 
             // dateTextbox
             // 
-            this.dateTextbox.Location = new System.Drawing.Point(59, 148);
+            this.dateTextbox.Location = new System.Drawing.Point(62, 241);
             this.dateTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.dateTextbox.Name = "dateTextbox";
             this.dateTextbox.Size = new System.Drawing.Size(197, 20);
@@ -121,7 +123,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(57, 174);
+            this.label4.Location = new System.Drawing.Point(60, 267);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 13);
@@ -130,7 +132,7 @@
             // 
             // departureTextbox
             // 
-            this.departureTextbox.Location = new System.Drawing.Point(59, 189);
+            this.departureTextbox.Location = new System.Drawing.Point(62, 282);
             this.departureTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.departureTextbox.Name = "departureTextbox";
             this.departureTextbox.Size = new System.Drawing.Size(197, 20);
@@ -139,7 +141,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(57, 211);
+            this.label5.Location = new System.Drawing.Point(60, 304);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 13);
@@ -148,7 +150,7 @@
             // 
             // arrivalTextbox
             // 
-            this.arrivalTextbox.Location = new System.Drawing.Point(59, 226);
+            this.arrivalTextbox.Location = new System.Drawing.Point(62, 319);
             this.arrivalTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.arrivalTextbox.Name = "arrivalTextbox";
             this.arrivalTextbox.Size = new System.Drawing.Size(197, 20);
@@ -160,7 +162,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(315, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(306, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -198,18 +200,29 @@
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(0, 352);
+            this.progressBar.Location = new System.Drawing.Point(0, 431);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(315, 11);
+            this.progressBar.Size = new System.Drawing.Size(403, 14);
             this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar.TabIndex = 13;
             this.progressBar.Visible = false;
+            // 
+            // headerImage
+            // 
+            this.headerImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("headerImage.InitialImage")));
+            this.headerImage.Location = new System.Drawing.Point(63, 83);
+            this.headerImage.Name = "headerImage";
+            this.headerImage.Size = new System.Drawing.Size(196, 88);
+            this.headerImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.headerImage.TabIndex = 14;
+            this.headerImage.TabStop = false;
             // 
             // Flight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(315, 362);
+            this.ClientSize = new System.Drawing.Size(306, 443);
+            this.Controls.Add(this.headerImage);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.operationStatusLabel);
             this.Controls.Add(this.label5);
@@ -232,6 +245,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.headerImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,6 +270,7 @@
         private System.Windows.Forms.Label operationStatusLabel;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.ToolStripMenuItem updateStripMenuItem;
+        private System.Windows.Forms.PictureBox headerImage;
     }
 }
 

@@ -1,11 +1,8 @@
-﻿using Microsoft.Win32;
-using System;
-using System.Diagnostics;
+﻿using System;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Windows.ApplicationModel.Background;
 using Windows.Data.Xml.Dom;
 using Windows.Storage;
 using Windows.UI.Notifications;
@@ -15,6 +12,11 @@ namespace DesktopBridge.FlightTracker
     public partial class Flight : Form
     {
         public Flight()
+        {
+            InitializeComponent();
+        }
+
+        public Flight(string path)
         {
             InitializeComponent();
         }
@@ -30,7 +32,7 @@ namespace DesktopBridge.FlightTracker
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private async void Form1_Load(object sender, EventArgs e)
         {
             if (ApplicationData.Current.LocalSettings.Values.ContainsKey("Code"))
             {
@@ -52,28 +54,11 @@ namespace DesktopBridge.FlightTracker
                 arrivalTextbox.Text = ApplicationData.Current.LocalSettings.Values["Arrival"].ToString();
             }
 
-            DesktopBridge.Helpers bridgeHelpers = new DesktopBridge.Helpers();
-            if (bridgeHelpers.IsRunningAsUwp())
+            var file = await ApplicationData.Current.LocalFolder.TryGetItemAsync("header.jpg");
+            if (file != null)
             {
-                updateStripMenuItem.Visible = false;
-                string triggerName = "FlightTimeZoneTrigger";
-
-                // Check if the task is already registered
-                foreach (var cur in BackgroundTaskRegistration.AllTasks)
-                {
-                    if (cur.Value.Name == triggerName)
-                    {
-                        // The task is already registered.
-                        return;
-                    }
-                }
-
-                BackgroundTaskBuilder builder = new BackgroundTaskBuilder();
-                builder.Name = triggerName;
-                builder.SetTrigger(new SystemTrigger(SystemTriggerType.TimeZoneChange, false));
-                builder.TaskEntryPoint = "DesktopBridge.FlightTracker.Notification.ToastTask";
-                builder.Register();
-
+                StorageFile headerFile = file as StorageFile;
+                headerImage.ImageLocation = headerFile.Path;
             }
         }
 
